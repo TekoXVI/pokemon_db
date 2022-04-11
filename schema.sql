@@ -1,14 +1,12 @@
- 
- 
- create table 'pokemon' (
+create table 'pokemon' (
  	'id' integer primary key,
 	'name' text not null,
 	'attack' integer not null,
 	'defense' integer not null,
 	'hp' integer not null
- );
+);
  
- create table 'pokemon_type' (
+create table 'pokemon_type' (
  	'id' integer not null,
  	'type_1' text not null,
  	'type_2' text default null,
