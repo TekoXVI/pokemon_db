@@ -1,4 +1,4 @@
-create table 'pokemon' (
+create table pokemon (
  	'id' integer primary key,
 	'name' text not null,
 	'attack' integer not null,
@@ -6,21 +6,21 @@ create table 'pokemon' (
 	'hp' integer not null
 );
  
-create table 'pokemon_type' (
+create table pokemon_type (
  	'id' integer not null,
  	'type_1' text not null,
  	'type_2' text default null,
  	foreign key ('id') references 'pokemon' ('id')
  );
  
-create table 'effectiveness' (
+create table effectiveness (
 	'attack_type' text not null, 
 	'defense_type' text not null, 
 	'effect' float not null,
 	primary key ('attack_type', 'defense_type')
 );
 
-create table 'evolves' (
+create table evolves (
 	'id' integer not null,
 	'from_id' integer not null,
 	'to_id' integer not null,
@@ -29,12 +29,12 @@ create table 'evolves' (
 	foreign key ('to_id') references 'pokemon' ('id')
 );
 
-create table 'trainer' (
+create table trainer (
 	'id' integer primary key,
 	'name' integer not null
 );
 
-create table 'trainer_pokemon' (
+create table trainer_pokemon (
 	'trainer_id' integer not null,
 	'pokemon_id' integer not null,
 	foreign key ('trainer_id') references 'trainer' ('id'),

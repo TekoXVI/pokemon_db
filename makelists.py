@@ -20,8 +20,21 @@ def make_combos() -> list[tuple[str, str, float]]:
 			
 	return combinations
 
+
+def pokemon():
+    f = open("pokemon.txt", "r")
+    n = open("pokemon.txt", "w")
+    for line in f:
+        
+
+
+
+
+
 make_combos()
 
+    
+'''
 ('Normal', 'Normal', 1.0), 
 ('Normal', 'Fire', 1.0), 
 ('Normal', 'Water', 1.0), 
@@ -346,3 +359,4 @@ make_combos()
 ('Fairy', 'Dragon', 2.0), 
 ('Fairy', 'Steel', 0.5), 
 ('Fairy', 'Fairy', 1.0), 
+'''
