@@ -1,3 +1,16 @@
+(attack_type, defense_type, effectiveness)
+
+1.0 == normally effective
+2.0 == super effective
+0.5 == not very effective
+0.0 == not effective (no damage)
+
+examples:
+	normal is not very effective against rock
+	fire is super effective againt grass
+	water is not very effective againt dragon
+	electric does not effect ground
+
 ('Normal', 'Normal', 1.0), 
 ('Normal', 'Fire', 1.0), 
 ('Normal', 'Water', 1.0), 

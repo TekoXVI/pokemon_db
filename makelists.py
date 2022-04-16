@@ -1,362 +1,60 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 
-def make_combos() -> list[tuple[str, str, float]]:
-	
-	types = ['Normal', 'Fire', 'Water', 'Grass', 'Electric', 'Ice', 'Fighting', 'Poison', 'Ground', 'Flying', 'Psychic', 'Bug', 'Rock', 'Ghost', 'Dark', 'Dragon', 'Steel', 'Fairy']
+def effectiveness() -> list[tuple[str, str, float]]:
+    
+    types = ['Normal', 'Fire', 'Water', 'Grass', 'Electric', 'Ice', 'Fighting', 'Poison', 'Ground', 'Flying', 'Psychic', 'Bug', 'Rock', 'Ghost', 'Dark', 'Dragon', 'Steel', 'Fairy']
 
-	combos = types * 18
+    combos = types * 18
 
-	combos2: list[str] = []
-	for type in types:
-		for i in range(18):
-			combos2.append(type)
-		
-	combinations: list[tuple[str, str, float]] = [('a', 'b', 1.0)] * 324
-	for i in range(324):
-		combinations[i] = (combos2[i], combos[i], 1.0)
+    combos2: list[str] = []
+    for type in types:
+        for i in range(18):
+            combos2.append(type)
+        
+    combinations: list[tuple[str, str, float]] = [('a', 'b', 1.0)] * 324
+    for i in range(324):
+        combinations[i] = (combos2[i], combos[i], 1.0)
 
-	for combo in combinations:
-		print(combo)
-			
-	return combinations
+    for combo in combinations:
+        print(combo)
+            
+    return combinations
 
 
-def pokemon():
-    f = open("pokemon.txt", "r")
-    n = open("pokemon.txt", "w")
-    for line in f:
+def evolves():
+    l = []
+    for p in range(151):
+        l.append(p+1)
+        l.append(p)
+        l.append(p+2)
+    
+    it = iter(l)
+    lz = zip(it, it, it)
+    lt = []
+    for t in lz:
+        lt.append(t)
+        print(t, ",")
         
 
-
-
-
-
-make_combos()
-
+def pokemon():
+    lt = [(1,'Bulbasaur',45,45,49,65,49,65,2,1),(2,'Ivysaur',60,60,62,80,63,80,3,1),(3,'Venusaur',80,80,100,122,123,120,5,1),(4,'Charmander',39,65,52,60,43,50,6,1),(5,'Charmeleon',58,80,64,80,58,65,8,1),(6,'Charizard',78,100,104,159,78,115,9,1),(7,'Squirtle',44,43,48,50,65,64,11,1),(8,'Wartortle',59,58,63,65,80,80,12,1),(9,'Blastoise',79,78,103,135,120,115,14,1),(10,'Caterpie',45,45,30,20,35,20,15,1),(11,'Metapod',50,30,20,25,55,25,17,1),(12,'Butterfree',60,70,45,90,50,80,18,1),(13,'Weedle',40,50,35,20,30,20,20,1),(14,'Kakuna',45,35,25,25,50,25,22,1),(15,'Beedrill',65,145,150,15,40,80,24,1),(16,'Pidgey',40,56,45,35,40,35,25,1),(17,'Pidgeotto',63,71,60,50,55,50,26,1),(18,'Pidgeot',83,121,80,135,80,80,28,1),(19,'Rattata',30,72,56,25,35,35,30,1),(20,'Raticate',75,77,71,40,70,80,31,1),(21,'Spearow',40,70,60,31,30,31,33,1),(22,'Fearow',65,100,90,61,65,61,34,1),(23,'Ekans',35,55,60,40,44,54,35,1),(24,'Arbok',60,80,95,65,69,79,36,1),(25,'Pikachu',35,90,55,50,40,50,38,1),(26,'Raichu',60,110,85,95,50,85,39,1),(27,'Sandshrew',50,40,75,10,90,35,40,1),(28,'Sandslash',75,65,100,25,120,65,42,1),(29,'Nidoran♀',55,41,47,40,52,40,44,1),(30,'Nidorina',70,56,62,55,67,55,45,1),(31,'Nidoqueen',90,76,92,75,87,85,47,1),(32,'Nidoran♂',46,50,57,40,40,40,49,1),(33,'Nidorino',61,65,72,55,57,55,51,1),(34,'Nidoking',81,85,102,85,77,75,53,1),(35,'Clefairy',70,35,45,60,48,65,55,1),(36,'Clefable',95,60,70,95,73,90,57,1),(37,'Vulpix',38,65,41,50,40,65,59,1),(38,'Ninetales',73,109,67,81,75,100,61,1),(39,'Jigglypuff',115,20,45,45,20,25,62,1),(40,'Wigglytuff',140,45,70,85,45,50,64,1),(41,'Zubat',40,55,45,30,35,40,65,1),(42,'Golbat',75,90,80,65,70,75,67,1),(43,'Oddish',45,30,50,75,55,65,68,1),(44,'Gloom',60,40,65,85,70,75,70,1),(45,'Vileplume',75,50,80,110,85,90,71,1),(46,'Paras',35,25,70,45,55,55,73,1),(47,'Parasect',60,30,95,60,80,80,75,1),(48,'Venonat',60,45,55,40,50,55,76,1),(49,'Venomoth',70,90,65,90,60,75,78,1),(50,'Diglett',10,90,55,35,30,45,80,1),(51,'Dugtrio',35,110,100,50,60,70,82,1),(52,'Meowth',40,90,35,50,35,40,85,1),(53,'Persian',65,115,60,75,60,65,87,1),(54,'Psyduck',50,55,52,65,48,50,89,1),(55,'Golduck',80,85,82,95,78,80,91,1),(56,'Mankey',40,70,80,35,35,45,93,1),(57,'Primeape',65,95,105,60,60,70,94,1),(58,'Growlithe',55,60,70,70,45,50,97,1),(59,'Arcanine',90,95,110,100,80,80,99,1),(60,'Poliwag',40,90,50,40,40,40,101,1),(61,'Poliwhirl',65,90,65,50,65,50,103,1),(62,'Poliwrath',90,70,95,70,95,90,105,1),(63,'Abra',25,90,20,105,15,55,106,1),(64,'Kadabra',40,105,35,120,30,70,107,1),(65,'Alakazam',55,150,50,175,65,105,110,1),(66,'Machop',70,35,80,35,50,35,112,1),(67,'Machoke',80,45,100,50,70,60,113,1),(68,'Machamp',90,55,130,65,80,85,117,1),(69,'Bellsprout',50,40,75,70,35,30,119,1),(70,'Weepinbell',65,55,90,85,50,45,121,1),(71,'Victreebel',80,70,105,100,65,70,122,1),(72,'Tentacool',40,70,40,50,35,100,124,1),(73,'Tentacruel',80,100,70,80,65,120,125,1),(74,'Geodude',40,20,80,30,100,30,126,1),(75,'Graveler',55,35,95,45,115,45,130,1),(76,'Golem',80,45,120,55,130,65,134,1),(77,'Ponyta',50,90,85,65,55,65,135,1),(78,'Rapidash',65,105,100,80,70,80,136,1),(79,'Slowpoke',90,15,65,40,65,40,139,1),(80,'Slowbro',95,30,75,130,180,80,141,1),(81,'Magnemite',25,45,35,95,70,55,143,1),(82,'Magneton',50,70,60,120,95,70,148,1),(83,'Farfetch\'d',52,60,90,58,55,62,149,1),(84,'Doduo',35,75,85,35,45,35,153,1),(85,'Dodrio',60,110,110,60,70,60,154,1),(86,'Seel',65,45,45,45,55,70,156,1),(87,'Dewgong',90,70,70,70,80,95,157,1),(88,'Grimer',80,25,80,40,50,50,159,1),(89,'Muk',105,50,105,65,75,100,160,1),(90,'Shellder',30,40,65,45,100,25,162,1),(91,'Cloyster',50,70,95,85,180,45,164,1),(92,'Gastly',30,80,35,100,30,35,166,1),(93,'Haunter',45,95,50,115,45,55,168,1),(94,'Gengar',60,130,65,170,80,95,169,1),(95,'Onix',35,70,45,30,160,45,171,1),(96,'Drowzee',60,42,48,43,45,90,176,1),(97,'Hypno',85,67,73,73,70,115,178,1),(98,'Krabby',30,50,105,25,90,25,180,1),(99,'Kingler',55,75,130,50,115,50,181,1),(100,'Voltorb',40,100,30,55,50,55,182,1),(101,'Electrode',60,150,50,80,70,80,183,1),(102,'Exeggcute',60,40,40,60,80,45,184,1),(103,'Exeggutor',95,45,105,125,85,75,185,1),(104,'Cubone',50,35,50,40,95,50,186,1),(105,'Marowak',60,45,80,50,110,80,188,1),(106,'Hitmonlee',50,87,120,35,53,110,189,1),(107,'Hitmonchan',50,76,105,35,79,110,192,1),(108,'Lickitung',90,30,55,60,75,75,195,1),(109,'Koffing',40,35,65,60,95,45,196,1),(110,'Weezing',65,60,90,85,120,70,197,1),(111,'Rhyhorn',80,25,85,30,95,30,199,1),(112,'Rhydon',105,40,130,45,120,45,202,1),(113,'Chansey',250,50,5,35,5,105,205,1),(114,'Tangela',65,60,55,100,115,40,208,1),(115,'Kangaskhan',105,100,125,60,100,100,210,1),(116,'Horsea',30,60,40,70,70,25,212,1),(117,'Seadra',55,85,65,95,95,45,217,1),(118,'Goldeen',45,63,67,35,60,50,219,1),(119,'Seaking',80,68,92,65,65,80,221,1),(120,'Staryu',30,85,45,70,55,55,224,1),(121,'Starmie',60,115,75,100,85,85,226,1),(122,'Mr. Mime',40,90,45,100,65,120,229,1),(123,'Scyther',70,105,110,55,80,80,230,1),(124,'Jynx',65,95,50,115,35,95,232,1),(125,'Electabuzz',65,105,83,95,57,85,233,1),(126,'Magmar',65,93,95,100,57,85,237,1),(127,'Pinsir',65,105,155,65,120,90,242,1),(128,'Tauros',75,110,100,40,95,70,247,1),(129,'Magikarp',20,80,10,15,55,20,248,1),(130,'Gyarados',95,81,155,70,109,130,253,1),(131,'Lapras',130,60,85,85,80,95,254,1),(132,'Ditto',48,48,48,48,48,48,256,1),(133,'Eevee',55,55,55,45,50,65,257,1),(134,'Vaporeon',130,65,65,110,60,95,259,1),(135,'Jolteon',65,130,65,110,60,95,260,1),(136,'Flareon',65,65,130,95,60,110,262,1),(137,'Porygon',65,40,60,85,70,75,264,1),(138,'Omanyte',35,35,40,90,100,55,266,1),(139,'Omastar',70,55,60,115,125,70,267,1),(140,'Kabuto',30,55,80,55,90,45,268,1),(141,'Kabutops',60,80,115,65,105,70,269,1),(142,'Aerodactyl',80,150,135,70,85,95,271,1),(143,'Snorlax',160,30,110,65,65,110,272,1),(144,'Articuno',90,85,85,95,100,125,274,1),(145,'Zapdos',90,100,90,125,85,90,275,1),(146,'Moltres',90,90,100,125,90,85,277,1),(147,'Dratini',41,50,64,50,45,50,279,1),(148,'Dragonair',61,70,84,70,65,70,281,1),(149,'Dragonite',91,80,134,100,95,100,282,1),(150,'Mewtwo',106,140,150,194,70,120,284,1),(151,'Mew',100,100,100,100,100,100,286,1)]
     
-'''
-('Normal', 'Normal', 1.0), 
-('Normal', 'Fire', 1.0), 
-('Normal', 'Water', 1.0), 
-('Normal', 'Grass', 1.0), 
-('Normal', 'Electric', 1.0), 
-('Normal', 'Ice', 1.0), 
-('Normal', 'Fighting', 1.0), 
-('Normal', 'Poison', 1.0), 
-('Normal', 'Ground', 1.0), 
-('Normal', 'Flying', 1.0), 
-('Normal', 'Psychic', 1.0), 
-('Normal', 'Bug', 1.0), 
-('Normal', 'Rock', 0.5), 
-('Normal', 'Ghost', 0.0), 
-('Normal', 'Dark', 1.0), 
-('Normal', 'Dragon', 1.0), 
-('Normal', 'Steel', 0.5), 
-('Normal', 'Fairy', 1.0), 
-('Fire', 'Normal', 1.0), 
-('Fire', 'Fire', 0.5), 
-('Fire', 'Water', 0.5), 
-('Fire', 'Grass', 2.0), 
-('Fire', 'Electric', 1.0), 
-('Fire', 'Ice', 2.0), 
-('Fire', 'Fighting', 1.0), 
-('Fire', 'Poison', 1.0), 
-('Fire', 'Ground', 1.0), 
-('Fire', 'Flying', 1.0), 
-('Fire', 'Psychic', 1.0), 
-('Fire', 'Bug', 2.0), 
-('Fire', 'Rock', 0.5), 
-('Fire', 'Ghost', 1.0), 
-('Fire', 'Dark', 1.0), 
-('Fire', 'Dragon', 0.5), 
-('Fire', 'Steel', 2.0), 
-('Fire', 'Fairy', 1.0), 
-('Water', 'Normal', 1.0), 
-('Water', 'Fire', 2.0), 
-('Water', 'Water', 0.5), 
-('Water', 'Grass', 0.5), 
-('Water', 'Electric', 1.0), 
-('Water', 'Ice', 1.0), 
-('Water', 'Fighting', 1.0), 
-('Water', 'Poison', 1.0), 
-('Water', 'Ground', 2.0), 
-('Water', 'Flying', 1.0), 
-('Water', 'Psychic', 1.0), 
-('Water', 'Bug', 1.0), 
-('Water', 'Rock', 2.0), 
-('Water', 'Ghost', 1.0), 
-('Water', 'Dark', 1.0), 
-('Water', 'Dragon', 0.5), 
-('Water', 'Steel', 1.0), 
-('Water', 'Fairy', 1.0), 
-('Grass', 'Normal', 1.0), 
-('Grass', 'Fire', 0.5), 
-('Grass', 'Water', 2.0), 
-('Grass', 'Grass', 0.5), 
-('Grass', 'Electric', 1.0), 
-('Grass', 'Ice', 1.0), 
-('Grass', 'Fighting', 1.0), 
-('Grass', 'Poison', 0.5), 
-('Grass', 'Ground', 2.0), 
-('Grass', 'Flying', 0.5), 
-('Grass', 'Psychic', 1.0), 
-('Grass', 'Bug', 0.5), 
-('Grass', 'Rock', 2.0), 
-('Grass', 'Ghost', 1.0), 
-('Grass', 'Dark', 1.0), 
-('Grass', 'Dragon', 0.5), 
-('Grass', 'Steel', 0.5), 
-('Grass', 'Fairy', 1.0), 
-('Electric', 'Normal', 1.0), 
-('Electric', 'Fire', 1.0), 
-('Electric', 'Water', 2.0), 
-('Electric', 'Grass', 0.5), 
-('Electric', 'Electric', 0.5), 
-('Electric', 'Ice', 1.0), 
-('Electric', 'Fighting', 1.0), 
-('Electric', 'Poison', 1.0), 
-('Electric', 'Ground', 0.0), 
-('Electric', 'Flying', 2.0), 
-('Electric', 'Psychic', 1.0), 
-('Electric', 'Bug', 1.0), 
-('Electric', 'Rock', 1.0), 
-('Electric', 'Ghost', 1.0), 
-('Electric', 'Dark', 1.0), 
-('Electric', 'Dragon', 0.5), 
-('Electric', 'Steel', 1.0), 
-('Electric', 'Fairy', 1.0), 
-('Ice', 'Normal', 1.0), 
-('Ice', 'Fire', 0.5), 
-('Ice', 'Water', 0.5), 
-('Ice', 'Grass', 2.0), 
-('Ice', 'Electric', 1.0), 
-('Ice', 'Ice', 0.5), 
-('Ice', 'Fighting', 1.0), 
-('Ice', 'Poison', 1.0), 
-('Ice', 'Ground', 2.0), 
-('Ice', 'Flying', 2.0), 
-('Ice', 'Psychic', 1.0), 
-('Ice', 'Bug', 1.0), 
-('Ice', 'Rock', 1.0), 
-('Ice', 'Ghost', 1.0), 
-('Ice', 'Dark', 1.0), 
-('Ice', 'Dragon', 2.0), 
-('Ice', 'Steel', 0.5), 
-('Ice', 'Fairy', 1.0), 
-('Fighting', 'Normal', 2.0), 
-('Fighting', 'Fire', 1.0), 
-('Fighting', 'Water', 1.0), 
-('Fighting', 'Grass', 1.0), 
-('Fighting', 'Electric', 1.0), 
-('Fighting', 'Ice', 2.0), 
-('Fighting', 'Fighting', 1.0), 
-('Fighting', 'Poison', 0.5), 
-('Fighting', 'Ground', 1.0), 
-('Fighting', 'Flying', 0.5), 
-('Fighting', 'Psychic', 0.5), 
-('Fighting', 'Bug', 0.5), 
-('Fighting', 'Rock', 2.0), 
-('Fighting', 'Ghost', 0.0), 
-('Fighting', 'Dark', 2.0), 
-('Fighting', 'Dragon', 1.0), 
-('Fighting', 'Steel', 2.0), 
-('Fighting', 'Fairy', 0.5), 
-('Poison', 'Normal', 1.0), 
-('Poison', 'Fire', 1.0), 
-('Poison', 'Water', 1.0), 
-('Poison', 'Grass', 2.0), 
-('Poison', 'Electric', 1.0), 
-('Poison', 'Ice', 1.0), 
-('Poison', 'Fighting', 1.0), 
-('Poison', 'Poison', 0.5), 
-('Poison', 'Ground', 0.5), 
-('Poison', 'Flying', 1.0), 
-('Poison', 'Psychic', 1.0), 
-('Poison', 'Bug', 1.0), 
-('Poison', 'Rock', 0.5), 
-('Poison', 'Ghost', 0.5), 
-('Poison', 'Dark', 1.0), 
-('Poison', 'Dragon', 1.0), 
-('Poison', 'Steel', 0.0), 
-('Poison', 'Fairy', 2.0), 
-('Ground', 'Normal', 1.0), 
-('Ground', 'Fire', 2.0), 
-('Ground', 'Water', 1.0), 
-('Ground', 'Grass', 0.5), 
-('Ground', 'Electric', 2.0), 
-('Ground', 'Ice', 1.0), 
-('Ground', 'Fighting', 1.0), 
-('Ground', 'Poison', 2.0), 
-('Ground', 'Ground', 1.0), 
-('Ground', 'Flying', 0.0), 
-('Ground', 'Psychic', 1.0), 
-('Ground', 'Bug', 0.5), 
-('Ground', 'Rock', 2.0), 
-('Ground', 'Ghost', 1.0), 
-('Ground', 'Dark', 1.0), 
-('Ground', 'Dragon', 1.0), 
-('Ground', 'Steel', 2.0), 
-('Ground', 'Fairy', 1.0), 
-('Flying', 'Normal', 1.0), 
-('Flying', 'Fire', 1.0), 
-('Flying', 'Water', 1.0), 
-('Flying', 'Grass', 2.0), 
-('Flying', 'Electric', 0.5), 
-('Flying', 'Ice', 1.0), 
-('Flying', 'Fighting', 2.0), 
-('Flying', 'Poison', 1.0), 
-('Flying', 'Ground', 1.0), 
-('Flying', 'Flying', 1.0), 
-('Flying', 'Psychic', 1.0), 
-('Flying', 'Bug', 2.0), 
-('Flying', 'Rock', 0.5), 
-('Flying', 'Ghost', 1.0), 
-('Flying', 'Dark', 1.0), 
-('Flying', 'Dragon', 1.0), 
-('Flying', 'Steel', 0.5), 
-('Flying', 'Fairy', 1.0), 
-('Psychic', 'Normal', 1.0), 
-('Psychic', 'Fire', 1.0), 
-('Psychic', 'Water', 1.0), 
-('Psychic', 'Grass', 1.0), 
-('Psychic', 'Electric', 1.0), 
-('Psychic', 'Ice', 1.0), 
-('Psychic', 'Fighting', 2.0), 
-('Psychic', 'Poison', 2.0), 
-('Psychic', 'Ground', 1.0), 
-('Psychic', 'Flying', 1.0), 
-('Psychic', 'Psychic', 0.5), 
-('Psychic', 'Bug', 1.0), 
-('Psychic', 'Rock', 1.0), 
-('Psychic', 'Ghost', 1.0), 
-('Psychic', 'Dark', 0.0), 
-('Psychic', 'Dragon', 1.0), 
-('Psychic', 'Steel', 0.5), 
-('Psychic', 'Fairy', 1.0), 
-('Bug', 'Normal', 1.0), 
-('Bug', 'Fire', 0.5), 
-('Bug', 'Water', 1.0), 
-('Bug', 'Grass', 2.0), 
-('Bug', 'Electric', 1.0), 
-('Bug', 'Ice', 1.0), 
-('Bug', 'Fighting', 0.5), 
-('Bug', 'Poison', 0.5), 
-('Bug', 'Ground', 1.0), 
-('Bug', 'Flying', 0.5), 
-('Bug', 'Psychic', 2.0), 
-('Bug', 'Bug', 1.0), 
-('Bug', 'Rock', 1.0), 
-('Bug', 'Ghost', 0.5), 
-('Bug', 'Dark', 2.0), 
-('Bug', 'Dragon', 1.0), 
-('Bug', 'Steel', 0.5), 
-('Bug', 'Fairy', 0.5), 
-('Rock', 'Normal', 1.0), 
-('Rock', 'Fire', 2.0), 
-('Rock', 'Water', 1.0), 
-('Rock', 'Grass', 1.0), 
-('Rock', 'Electric', 1.0), 
-('Rock', 'Ice', 2.0), 
-('Rock', 'Fighting', 0.5), 
-('Rock', 'Poison', 1.0), 
-('Rock', 'Ground', 0.5), 
-('Rock', 'Flying', 2.0), 
-('Rock', 'Psychic', 1.0), 
-('Rock', 'Bug', 2.0), 
-('Rock', 'Rock', 1.0), 
-('Rock', 'Ghost', 1.0), 
-('Rock', 'Dark', 1.0), 
-('Rock', 'Dragon', 1.0), 
-('Rock', 'Steel', 0.5), 
-('Rock', 'Fairy', 1.0), 
-('Ghost', 'Normal', 0.0), 
-('Ghost', 'Fire', 1.0), 
-('Ghost', 'Water', 1.0), 
-('Ghost', 'Grass', 1.0), 
-('Ghost', 'Electric', 1.0), 
-('Ghost', 'Ice', 1.0), 
-('Ghost', 'Fighting', 1.0), 
-('Ghost', 'Poison', 1.0), 
-('Ghost', 'Ground', 1.0), 
-('Ghost', 'Flying', 1.0), 
-('Ghost', 'Psychic', 2.0), 
-('Ghost', 'Bug', 1.0), 
-('Ghost', 'Rock', 1.0), 
-('Ghost', 'Ghost', 2.0), 
-('Ghost', 'Dark', 0.5), 
-('Ghost', 'Dragon', 1.0), 
-('Ghost', 'Steel', 1.0), 
-('Ghost', 'Fairy', 1.0), 
-('Dark', 'Normal', 1.0), 
-('Dark', 'Fire', 1.0), 
-('Dark', 'Water', 1.0), 
-('Dark', 'Grass', 1.0), 
-('Dark', 'Electric', 1.0), 
-('Dark', 'Ice', 1.0), 
-('Dark', 'Fighting', 1.0), 
-('Dark', 'Poison', 0.5), 
-('Dark', 'Ground', 1.0), 
-('Dark', 'Flying', 1.0), 
-('Dark', 'Psychic', 1.0), 
-('Dark', 'Bug', 2.0), 
-('Dark', 'Rock', 1.0), 
-('Dark', 'Ghost', 2.0), 
-('Dark', 'Dark', 0.5), 
-('Dark', 'Dragon', 1.0), 
-('Dark', 'Steel', 1.0), 
-('Dark', 'Fairy', 0.5), 
-('Dragon', 'Normal', 1.0), 
-('Dragon', 'Fire', 1.0), 
-('Dragon', 'Water', 1.0), 
-('Dragon', 'Grass', 1.0), 
-('Dragon', 'Electric', 1.0), 
-('Dragon', 'Ice', 1.0), 
-('Dragon', 'Fighting', 1.0), 
-('Dragon', 'Poison', 1.0), 
-('Dragon', 'Ground', 1.0), 
-('Dragon', 'Flying', 1.0), 
-('Dragon', 'Psychic', 1.0), 
-('Dragon', 'Bug', 1.0), 
-('Dragon', 'Rock', 1.0), 
-('Dragon', 'Ghost', 1.0), 
-('Dragon', 'Dark', 1.0), 
-('Dragon', 'Dragon', 2.0), 
-('Dragon', 'Steel', 0.5), 
-('Dragon', 'Fairy', 0.0), 
-('Steel', 'Normal', 1.0), 
-('Steel', 'Fire', 0.5), 
-('Steel', 'Water', 0.5), 
-('Steel', 'Grass', 1.0), 
-('Steel', 'Electric', 0.5), 
-('Steel', 'Ice', 2.0), 
-('Steel', 'Fighting', 1.0), 
-('Steel', 'Poison', 1.0), 
-('Steel', 'Ground', 1.0), 
-('Steel', 'Flying', 1.0), 
-('Steel', 'Psychic', 1.0), 
-('Steel', 'Bug', 1.0), 
-('Steel', 'Rock', 2.0), 
-('Steel', 'Ghost', 1.0), 
-('Steel', 'Dark', 1.0), 
-('Steel', 'Dragon', 1.0), 
-('Steel', 'Steel', 0.5), 
-('Steel', 'Fairy', 2.0), 
-('Fairy', 'Normal', 1.0), 
-('Fairy', 'Fire', 0.5), 
-('Fairy', 'Water', 1.0), 
-('Fairy', 'Grass', 1.0), 
-('Fairy', 'Electric', 1.0), 
-('Fairy', 'Ice', 1.0), 
-('Fairy', 'Fighting', 2.0), 
-('Fairy', 'Poison', 0.5), 
-('Fairy', 'Ground', 1.0), 
-('Fairy', 'Flying', 1.0), 
-('Fairy', 'Psychic', 1.0), 
-('Fairy', 'Bug', 1.0), 
-('Fairy', 'Rock', 1.0), 
-('Fairy', 'Ghost', 1.0), 
-('Fairy', 'Dark', 2.0), 
-('Fairy', 'Dragon', 2.0), 
-('Fairy', 'Steel', 0.5), 
-('Fairy', 'Fairy', 1.0), 
-'''
+    l = []
+    for i in range(len(lt)):
+        l.append(lt[i][0])
+        l.append(lt[i][1])
+        l.append(lt[i][4])
+        l.append(lt[i][6])
+        l.append(lt[i][2])
+    
+    it = iter(l)
+    lz = zip(it, it, it, it, it)
+    lt = []
+    for t in lz:
+        lt.append(t)
+        
+        print(str(t) + ",")
+
+# effectiveness()
+# evolves()
+pokemon()

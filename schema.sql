@@ -22,8 +22,8 @@ create table effectiveness (
 
 create table evolves (
 	'id' integer not null,
-	'from_id' integer not null,
-	'to_id' integer not null,
+	'from_id' integer,
+	'to_id' integer,
 	foreign key ('id') references 'pokemon' ('id'),
 	foreign key ('from_id') references 'pokemon' ('id'),
 	foreign key ('to_id') references 'pokemon' ('id')
