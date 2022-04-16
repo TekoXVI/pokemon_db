@@ -11,7 +11,7 @@ create table pokemon_type (
  	'type_1' text not null,
  	'type_2' text default null,
  	foreign key ('id') references 'pokemon' ('id')
- );
+);
  
 create table effectiveness (
 	'attack_type' text not null, 
