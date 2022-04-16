@@ -1,0 +1,34 @@
+pokemon.txt:
+    (id, name, attack, defense, hp)
+
+
+
+effectiveness.txt:
+    (attack_type, defense_type, effectiveness)
+
+    1.0 == normally effective
+    2.0 == super effective
+    0.5 == not very effective
+    0.0 == not effective (no damage)
+
+    examples:
+        normal is not very effective against rock
+        fire is super effective againt grass
+        water is not very effective againt dragon
+        electric does not effect ground
+
+
+
+types.txt:
+    (id, type_1, type_2)
+
+
+
+evolves.txt:
+    (id, from_id, to_id)
+
+    examples: 
+        2 evolves from 1 and into 3
+        151 doesn't evolve from or to anything 
+        133 can evolve into 134, 135, or 136
+            script to choose evolution?
