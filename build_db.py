@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import sqlite3
 
 choice = input("Construct or destruct the db?")
@@ -103,7 +105,9 @@ def destruct_db():
     cur.execute('DELETE FROM pokemon')
     cur.execute('DELETE FROM effectiveness')
     cur.execute('DELETE FROM pokemon_type')
-    cur.execute('DELETE FROM evolves')
+    cur.execute('DELETE FROM evolves')    
+    cur.execute('DELETE FROM trainer')    
+    cur.execute('DELETE FROM trainer_pokemon')    
     con.commit()
     con.close()
 
