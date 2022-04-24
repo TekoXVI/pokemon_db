@@ -31,8 +31,10 @@ create table evolves (
 
 create table trainer (
 	'id' integer primary key,
-	'name' integer not null
-	unique(id, name)
+	'name' integer not null,
+	unique (name)
+	-- on delete cascade,
+	-- on update cascade
 );
 
 create table trainer_pokemon (
@@ -40,4 +42,6 @@ create table trainer_pokemon (
 	'pokemon_id' integer not null,
 	foreign key ('trainer_id') references 'trainer' ('id'),
 	foreign key ('pokemon_id') references 'pokemon' ('id')
+	-- on delete cascade,
+	-- on update cascade
 );

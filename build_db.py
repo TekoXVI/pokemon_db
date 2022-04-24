@@ -2,7 +2,7 @@
 
 import sqlite3
 
-choice = input("Construct or destruct the db?")
+choice = input("Construct or destruct the db? ")
 
 def main():
 

@@ -14,8 +14,9 @@ cur.execute('select t.name as Trainer, p.name as Pokemon from trainer_pokemon tp
 rows = cur.fetchall()
 for row in rows:
     print("Trainer:", row[0])
-    print("Pokemon:", row[1])
-    print()
+    for i in range(1, len(row)):
+        print("Pokemon:", row[i])
+        print()
 
 con.commit()
 con.close()
