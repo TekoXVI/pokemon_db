@@ -28,10 +28,6 @@ mon2 = row2[0]
 mon2_type1 = row2[1]
 mon2_type2 = row2[2]
 
-print(mon1_type1, mon1_type2, mon2_type1, mon2_type2)
-
-total = 0
-
 row11 = next(check(mon1_type1, mon2_type1))
 e11 = row11[2]
 
@@ -51,10 +47,7 @@ if mon1_type2 != '':
 		e22 = e21
 else:
 	e21 = e11
-	e22 = e12
-
-	
-print(e11, e12, e21, e22)
+	e22 = e12	
 
 if mon1_type2 != '' and mon2_type2 != '':
 	t1_m2 = e11 * e12
@@ -65,8 +58,13 @@ elif mon1_type2 == '' and mon2_type2 != '':
 elif mon1_type2 != '' and mon2_type2 == '':
 	t2_m2 = e21
 	t1_m2 = e11
+else:
+    t1_m2 = e11
+    t2_m2 = t1_m2
 
-print(t1_m2, t2_m2)
+# print(mon1_type1, mon1_type2, mon2_type1, mon2_type2)
+# print(e11, e12, e21, e22)
+# print(t1_m2, t2_m2)
 
 if t1_m2 == 4.0 or t2_m2 == 4.0:
 	print(mon1, 'is super effective (4x) against', mon2 + '!')
