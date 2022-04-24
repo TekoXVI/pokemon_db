@@ -32,10 +32,11 @@ create table evolves (
 create table trainer (
 	'id' integer primary key,
 	'name' integer not null
+	unique(id, name)
 );
 
 create table trainer_pokemon (
-	'trainer_id' integer not null,
+	'trainer_id' integer primary key,
 	'pokemon_id' integer not null,
 	foreign key ('trainer_id') references 'trainer' ('id'),
 	foreign key ('pokemon_id') references 'pokemon' ('id')

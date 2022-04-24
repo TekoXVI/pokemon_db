@@ -11,7 +11,7 @@ import sys
 con = sqlite3.connect('database.db')
 cur = con.cursor()
 
-cur.execute('INSERT INTO trainer_pokemon (trainer_id, pokemon_id) VALUES (?, ?)', [trainer_id, pokemon_id])
+cur.execute('REPLACE INTO trainer_pokemon (trainer_id, pokemon_id) VALUES (?, ?)', [trainer_id, pokemon_id])
 
 con.commit()
 con.close()
