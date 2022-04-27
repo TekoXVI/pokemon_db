@@ -32,3 +32,14 @@ evolves.txt:
         151 doesn't evolve from or to anything 
         133 can evolve into 134, 135, or 136
             script to choose evolution?
+
+
+
+evolves
+	select p.name, p2.name from evolves e join pokemon p using(id) left outer join pokemon p2 on to_id = p2.id;
+
+evolves with from types
+	select p.name, p2.name, type_1, type_2 from evolves e join pokemon p using(id) left outer join pokemon p2 on to_id = p2.id join pokemon_type using(id);
+
+evolves with all types
+	select p.name, t1.type_1, t1.type_2, p2.name, t2.type_1, t2.type_2 from evolves e join pokemon p using(id) left outer join pokemon p2 on to_id = p2.id join pokemon_type t1 using(id) left outer join pokemon_type t2 on to_id = t2.id;
