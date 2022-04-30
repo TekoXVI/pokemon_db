@@ -72,11 +72,11 @@ def effect(name_1, name_2):
     	return 2.0
     elif t1_m2 == 1.0 or t2_m2 == 1.0:
     	return 1.0
-    elif t1_m2 == 0.5 and t2_m2 == 0.5:
+    elif t1_m2 == 0.5 or t2_m2 == 0.5:
     	return 0.5
-    elif t1_m2 == 0.25 and t2_m2 == 0.25:
+    elif t1_m2 == 0.25 or t2_m2 == 0.25:
     	return 0.25
-    elif t1_m2 == 0.0 and t2_m2 == 0.0:
+    elif t1_m2 == 0.0 or t2_m2 == 0.0:
     	return 0.0	
 
 

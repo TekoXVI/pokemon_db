@@ -24,9 +24,30 @@ def get_stats(pokemon, choice):
         return mon[3] 
     elif choice == 'hp':
         return mon[4] 
+
+stat = get_stats(pokemon, choice)
+if choice == 'all':
+    number = stat[0]
+    name = stat[1]
+    attack = stat[2]
+    defense = stat[3]
+    hp = stat[4]
+    print('Pokemon number', str(number) + ':', name)
+    print('Attack:', attack)
+    print('Defense:', defense)
+    print('HP:', hp)
+elif choice == 'number':
+    print(pokemon.title(), 'is pokemon number', str(stat) + '. ')
+elif choice == 'name':
+    print(pokemon.title() + "'s name is", stat + '. Obviously...')
+elif choice == 'attack':
+    print(pokemon.title(), 'has', stat, 'attack. ')
+elif choice == 'defense':
+    print(pokemon.title(), 'has', stat, 'defense. ')
+elif choice == 'hp':
+    print(pokemon.title(), 'has', stat, 'HP. ')
     
 
-print(get_stats(pokemon, choice))
 
 
 con.commit()

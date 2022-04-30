@@ -30,6 +30,7 @@ def effect(name_1, name_2):
 
     row11 = next(check(mon1_type1, mon2_type1))
     e11 = row11[2]
+    print(e11)
 
     if mon2_type2 != '':
     	row12 = next(check(mon1_type1, mon2_type2))
@@ -47,8 +48,8 @@ def effect(name_1, name_2):
     		e22 = e21
     else:
     	e21 = e11
-    	e22 = e12	
-
+    	e22 = e12
+    	  
     if mon1_type2 != '' and mon2_type2 != '':
     	t1_m2 = e11 * e12
     	t2_m2 = e21 * e22
@@ -62,9 +63,9 @@ def effect(name_1, name_2):
         t1_m2 = e11
         t2_m2 = t1_m2
 
-    # print(mon1_type1, mon1_type2, mon2_type1, mon2_type2)
-    # print(e11, e12, e21, e22)
-    # print(t1_m2, t2_m2)
+    print(mon1_type1, mon1_type2, mon2_type1, mon2_type2)
+    print(e11, e12, e21, e22)
+    print(t1_m2, t2_m2)
 
     if t1_m2 == 4.0 or t2_m2 == 4.0:
     	print(mon1, 'is super effective (4x) against', mon2 + '!')
@@ -75,13 +76,13 @@ def effect(name_1, name_2):
     elif t1_m2 == 1.0 or t2_m2 == 1.0:
     	print(mon1, 'is normally effective against', mon2 + '.')
     	# return 1.0
-    elif t1_m2 == 0.5 and t2_m2 == 0.5:
+    elif t1_m2 == 0.5 or t2_m2 == 0.5:
     	print(mon1, 'is not very effective against', mon2 + '.')
     	# return 0.5
-    elif t1_m2 == 0.25 and t2_m2 == 0.25:
+    elif t1_m2 == 0.25 or t2_m2 == 0.25:
     	print(mon1, 'is not very effective (0.25x) against', mon2 + '.')
     	# return 0.25
-    elif t1_m2 == 0.0 and t2_m2 == 0.0:
+    elif t1_m2 == 0.0 or t2_m2 == 0.0:
     	print(mon1, 'is not effective against', mon2 + '...') 
     	# return 0.0
 

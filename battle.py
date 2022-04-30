@@ -159,7 +159,7 @@ effect21 = effect(pname_2, pname_1)
 if effect12 > effect21:
 	print_effect_win(pname_1, pname_2, tname_1, tname_2)
 elif effect12 < effect21:
-	print_effect_win(pname_1, pname_2, tname_1, tname_2)                    
+	print_effect_win(pname_2, pname_1, tname_2, tname_1)                    
 else:
 	# compare attack if same type
 	if get_stats(pname_1, 'attack') > get_stats(pname_2, 'attack'):
