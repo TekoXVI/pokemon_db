@@ -84,7 +84,7 @@ mon1 = next(get_mon(name))[0]
 
 counters = []
 
-for i in range(1, 151):
+for i in range(1, 152):
     mon2 = next(get_name(i))[0]
     e = effect(mon2, mon1)
     if e >= 2:
